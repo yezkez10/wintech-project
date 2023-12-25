@@ -1,15 +1,28 @@
 
 const { readFile } = require('fs'); //import file system module
 const express = require('express'); //import express module 
+const path = require('path');
 const app = express();
 
-app.get('/getData', (request, response) => {
-  readFile('./index.html', 'utf-8', (err, html) => {
-      if (err) {
-          response.status(500).send('Sorry, something went wrong.');
-      }
-      response.send(html);
-  })
+//for frontend to load file
+app.get('/', (request, response) => {
+  response.sendFile(path.join(__dirname, 'index.html'));
 });
+
+app.get('/api/data', (request, response) => {
+  const data = [{
+    id: '001',
+    name:'T-shirt'
+  }, {
+    id:'010',
+    name:'Shorts'
+  }, {
+    id:'011',
+    name:'Cap'
+  }];
+
+  response.json(data);
+}) 
+
 
 app.listen(3000, () => console.log('Server on http://localhost:3000'));
