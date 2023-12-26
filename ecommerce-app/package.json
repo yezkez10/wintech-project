@@ -1,3 +1,7 @@
+"scripts": {
+  "build:css": "tailwindcss build styles.css -o output.css"
+}
+
 {
   "name": "ecommerce-app",
   "version": "0.1.0",
