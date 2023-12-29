@@ -1,13 +1,19 @@
-import './App.css';
+import './App.css'
 import React, { useEffect, useState } from 'react'
-import Axios from 'axios'
+import axios from 'axios'
 
 function App() {
-  const [data, setData] = useState();
+  const [data, setData] = useState([])
 
   const getData = async () => {
-    const response = await Axios.get("http://localhost:3000");
-    setData(response.data);
+    try {
+      const response = await axios.get("http://localhost:3000/getProducts")
+      setData(response.data)
+      console.log(response.data)
+    } catch (err) {
+      console.error(err);
+    }
+    
   }
 
   useEffect(() => {
@@ -15,7 +21,17 @@ function App() {
   }, []);
 
   return (
-    <div>{data}</div>
+    <div>
+      <header>Testing</header>
+      {
+      data.map(data => {
+        <div>
+          <p>{data._id}</p>
+          <p>{data.saleDate}</p>
+        </div>
+      })
+      }
+      </div>
   );
 }
 

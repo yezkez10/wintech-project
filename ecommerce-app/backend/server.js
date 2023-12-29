@@ -1,28 +1,17 @@
-
-const { readFile } = require('fs'); //import file system module
 const express = require('express'); //import express module 
-const path = require('path');
+
 const app = express();
+app.use(express.json());
 
-//for frontend to load file
-app.get('/', (request, response) => {
-  response.sendFile(path.join(__dirname, 'index.html'));
-});
+const mongoose = require('mongoose');
+mongoose.connect('mongodb+srv://yezkez10:jfjn30703@ecommercedb.eibg6ip.mongodb.net/?retryWrites=true&w=majority');
 
-app.get('/api/data', (request, response) => {
-  const data = [{
-    id: '001',
-    name:'T-shirt'
-  }, {
-    id:'010',
-    name:'Shorts'
-  }, {
-    id:'011',
-    name:'Cap'
-  }];
+const ProductModel = require('./models/Products')
 
-  response.json(data);
-}) 
-
+app.get('/getProducts', (req, res) => {
+  ProductModel.find()
+  .then(products => res.json(products))
+  .catch(err => res.json(err))
+})
 
 app.listen(3000, () => console.log('Server on http://localhost:3000'));
