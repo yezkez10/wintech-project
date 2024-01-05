@@ -1,1 +1,0 @@
-# wintech-project

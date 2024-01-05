@@ -1,17 +1,31 @@
-const express = require('express'); //import express module 
-
+// Import required modules
+const fs = require('fs');
+const express = require('express');
 const app = express();
-app.use(express.json());
 
-const mongoose = require('mongoose');
-mongoose.connect('mongodb+srv://yezkez10:jfjn30703@ecommercedb.eibg6ip.mongodb.net/?retryWrites=true&w=majority');
-
-const ProductModel = require('./models/Products')
-
-app.get('/getProducts', (req, res) => {
-  ProductModel.find()
-  .then(products => res.json(products))
-  .catch(err => res.json(err))
+app.get('/', (req, response) => {
+  response.send('This is where the server runs');
 })
 
-app.listen(3000, () => console.log('Server on http://localhost:3000'));
+app.get('/api', (req, response) => {
+  response.send('This is the main api page');
+})
+
+app.get('/api/data', (req, response) => {
+  try {
+    const data = JSON.parse(fs.readFileSync('sample_supplies.json', 'utf-8'));
+    response.send(data);
+  } catch (error) {
+    console.error('Error reading or parsing file:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+  
+})
+
+
+// Start the server on port 4028
+app.listen(4028, () => {
+    console.log('Server is running on http://localhost:4028');
+    console.log('API is on http://localhost:4028/api');
+    console.log('Data is on http://localhost:4028/api/data');
+});
