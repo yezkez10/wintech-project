@@ -1,76 +1,31 @@
 // Import required modules
-const { readFile } = require('fs'); //import file system module
+const fs = require('fs');
 const express = require('express');
 const app = express();
-const path = require('path');
-const bodyParser = require('body-parser');
-const morgan = require('morgan');
-const mongoose = require('mongoose');
 
-//for frontend to load file
-app.get('/', (request, response) => {
-    response.sendFile(path.join(__dirname, 'index.html'));
-});
-
-// Middleware setup
-app.use(morgan('tiny')); // Log incoming HTTP requests
-
-// Load environment variables
-require('dotenv/config');
-
-// Define the API URL constant from environment variables
-const api = process.env.API_URL;
-
-// Route to get product data
-app.get(`${api}/products`, (req, res) => {
-    // Sample product data
-    const product = {
-        id: 1,
-        name: 'hair dresser',
-        image: 'some_url',
-    };
-    res.send(product);
-});
-
-// Route to handle data sent from the frontend (POST request)
-app.post(`${api}/products`, (req, res) => {
-    // Data received from the frontend in the request body
-    const newProduct = req.body;
-    console.log(newProduct); // Log the received data to the console
-    res.send(newProduct);
-});
-
-// Route for the root path
-app.get('/', (req, res) => {
-    const data = [{
-        id: '001',
-        name:'T-shirt'
-    }, {
-        id:'010',
-        name:'Shorts'
-    }, {
-        id:'011',
-        name:'Cap'
-    }];
-    
-    res.json(data);
-    
-});
-
-// MongoDB Connection setup
-mongoose.connect(process.env.CONNECTION_STRING, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
+app.get('/', (req, response) => {
+  response.send('This is where the server runs');
 })
-    .then(() => {
-        console.log('MongoDB successfully connected!');
-    })
-    .catch((err) => {
-        console.log(err);
-    });
 
-// Start the server on port 3000
-app.listen(3000, () => {
-    console.log(api);
-    console.log('Server is running http://localhost:3000');
+app.get('/api', (req, response) => {
+  response.send('This is the main api page');
+})
+
+app.get('/api/data', (req, response) => {
+  try {
+    const data = JSON.parse(fs.readFileSync('sample_supplies.json', 'utf-8'));
+    response.send(data);
+  } catch (error) {
+    console.error('Error reading or parsing file:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+  
+})
+
+
+// Start the server on port 4028
+app.listen(4028, () => {
+    console.log('Server is running on http://localhost:4028');
+    console.log('API is on http://localhost:4028/api');
+    console.log('Data is on http://localhost:4028/api/data');
 });
