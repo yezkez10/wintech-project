@@ -1,6 +1,6 @@
-#E-Commerce App 
+#E-Commerce App#
 
-##Instructions: 
+##Instructions:##
 
 
-##Workflow: 
+##Workflow:##
