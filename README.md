@@ -5,9 +5,10 @@
 
 ## Workflow:
 ### Frontend 
-- routing
--  
+- routing + pages 
+- integrate tailwind CSS styles into pages
 
 ### Backend 
-- API
-- 
+- tech stack (database)
+- set up backend
+- one API point accessible locally that can retrieve data
