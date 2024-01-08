@@ -1,11 +1,13 @@
 # E-Commerce App
 
 ## Instructions:
-
+1. 
 
 ## Workflow:
 ### Frontend 
-- routing 
+- routing
+-  
 
 ### Backend 
 - API
+- 
