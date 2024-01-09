@@ -2,11 +2,14 @@
 Uniqlo clone 
 
 ## Instructions:
-To run, type in the terminal:
+To run,
+
+Type in the terminal:
 1. `cd ecommerce-app`
 2. `npm install` (if npm command not found)
 3. `npm start`
-4. Runs on local host 
+
+Runs on local host 
 
 ## Workflow:
 ### Frontend 
