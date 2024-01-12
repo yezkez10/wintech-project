@@ -1,43 +1,66 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import {
-  Carousel,
-  initTE,
-} from "tw-elements";
+document.addEventListener("DOMContentLoaded", function () {
+  const slides = document.querySelectorAll(".carousel-item");
+  let currentIndex = 0;
+  let intervalId;
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
-
-reportWebVitals();
-
-initTE({ Carousel });
-
-const carousel = document.querySelector('.carousel');
-  const slides = document.querySelectorAll('.carousel-item');
-
-  let index = 0;
-
-  function updateCarousel() {
-    carousel.style.transform = `translateX(${-index * 100}%)`;
-  }
-
-  function goToSlide(newIndex) {
-    index = newIndex;
-    updateCarousel();
-  }
-
-  document.querySelectorAll('.btn-circle').forEach((btn, btnIndex) => {
-    btn.addEventListener('click', (event) => {
-      event.preventDefault();
-      const targetSlide = event.target.getAttribute('href').substring(1); 
-      const targetIndex = Array.from(slides).findIndex((slide) => slide.id === targetSlide);
-      goToSlide(targetIndex);
+  function showSlide(index) {
+    slides.forEach((slide, i) => {
+      slide.style.display = i === index ? "block" : "none";
     });
+  }
+
+  function navigate(direction) {
+    currentIndex += direction;
+    if (currentIndex < 0) {
+      currentIndex = slides.length - 1;
+    } else if (currentIndex >= slides.length) {
+      currentIndex = 0;
+    }
+    showSlide(currentIndex);
+  }
+
+  function autoSlide() {
+    navigate(1);
+  }
+
+  function startAutoSlide() {
+    // Start autoslide and remember the intervalId
+    intervalId = setInterval(autoSlide, 3000); // Slide every 3 seconds
+  }
+
+  function stopAutoSlide() {
+    // Stop autoslide
+    clearInterval(intervalId);
+  }
+
+  // Initial display
+  showSlide(currentIndex);
+
+  // Set up automatic sliding
+  startAutoSlide();
+
+  // Set up click event listeners for manual navigation
+  document.querySelector("#slide1").addEventListener("click", function () {
+    stopAutoSlide(); // Stop autoslide when manually navigating
+    navigate(1);
+    startAutoSlide(); // Restart autoslide after manual navigation
   });
+
+  document.querySelector("#slide2").addEventListener("click", function () {
+    stopAutoSlide();
+    navigate(1);
+    startAutoSlide();
+  });
+
+  document.querySelector("#slide3").addEventListener("click", function () {
+    stopAutoSlide();
+    navigate(1);
+    startAutoSlide();
+  });
+
+  document.querySelector("#slide4").addEventListener("click", function () {
+    stopAutoSlide();
+    navigate(1);
+    startAutoSlide();
+  });
+});
