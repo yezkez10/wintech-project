@@ -1,30 +1,26 @@
 import './App.css';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import WomenPage from './pages/Women.js';
+import MenPage from './pages/Men.js';
+import KidsPage from './pages/Kids.js';
+import BabyPage from './pages/Baby.js';
+import NavBar from './NavBar.js';
+import Home from './Home.js';
 
-function MyButton() {
-  return (
-    <button>
-      Login
-    </button>
-  );
-}
+function App() {
 
-export function MyApp() {
   return (
-    <div>
-      <h1>e-commerce</h1>
-      <MyButton />
-    </div>
-  );
-}
 
-const App = () => {
-  return (
     <div className="App">
-      <h2> Welcome to </h2>
-      <MyApp />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/women" element={<WomenPage />} />
+        <Route path="/men" element={<MenPage />} />
+        <Route path="/kids" element={<KidsPage />} />
+        <Route path="/baby" element={<BabyPage />} />
+      </Routes>
     </div>
   );
 }
 
 export default App;
-

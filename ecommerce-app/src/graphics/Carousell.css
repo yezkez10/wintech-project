@@ -1,0 +1,13 @@
+.flex {
+  display: flex;
+  overflow: hidden;
+}
+
+.carousel {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.carousel-item {
+  flex: 0 0 100%; /* Each item takes 100% width */
+}
