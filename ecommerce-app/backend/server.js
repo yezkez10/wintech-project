@@ -2,6 +2,8 @@
 const fs = require('fs/promises');
 const express = require('express');
 const app = express();
+const cors = require('cors');
+app.use(cors());
 
 app.get('/', (req, response) => {
   response.send('This is where the server runs');

@@ -1,6 +1,5 @@
 import './App.css';
-import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import ProductDetails from './ProductDetails';
 
 function MyButton() {
   return (
@@ -20,25 +19,14 @@ export function MyApp() {
 }
 
 function App() {
-  const API_URL = 'http://localhost:4028/api/products'
-  const [iniData, setIniData] = useState([]);
-
-  useEffect(() => {
-    axios.get(API_URL)
-      .then(res => {
-        setIniData(res.data);
-        console.log(res.data);
-      })
-      .catch(err => {
-        console.error(err);
-      })
-  }, []);
 
   return (
     <div className="App">
       <h2> Welcome to </h2>
       <MyApp />
-      
+      <ProductDetails productId={1} />
+      <ProductDetails productId={2} />
+      <ProductDetails productId={3} />
     </div>
   );
 }
