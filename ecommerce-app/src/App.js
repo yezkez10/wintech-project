@@ -1,27 +1,30 @@
-
 import './App.css';
-import React, { useEffect, useState } from 'react'
-import Axios from 'axios'
 
-function App() {
-  const [data, setData] = useState();
-
-  const getData = async () => {
-    const response = await Axios.get("http://localhost:3000");
-    setData(response.data);
-  }
-
-  useEffect(() => {
-    getData()
-  }, []);
-
+function MyButton() {
   return (
-    <div>{data}</div>
+    <button>
+      Login
+    </button>
+  );
+}
+
+export function MyApp() {
+  return (
+    <div>
+      <h1>e-commerce</h1>
+      <MyButton />
+    </div>
+  );
+}
+
+const App = () => {
+  return (
+    <div className="App">
+      <h2> Welcome to </h2>
+      <MyApp />
+    </div>
   );
 }
 
 export default App;
-
-
-
 

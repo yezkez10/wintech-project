@@ -1,0 +1,35 @@
+[
+  {
+    "id": 1,
+    "title": "Men's Casual Shirt",
+    "description": "A stylish and comfortable casual shirt for men.",
+    "price": 34.99,
+    "discountPercentage": 15.0,
+    "rating": 4.8,
+    "stock": 120,
+    "brand": "FashionHub",
+    "category": "apparel"
+  },
+  {
+    "id": 2,
+    "title": "Men's Denim Jeans",
+    "description": "Classic denim jeans for men with a comfortable fit.",
+    "price": 49.99,
+    "discountPercentage": 20.0,
+    "rating": 4.2,
+    "stock": 80,
+    "brand": "UrbanStyle",
+    "category": "apparel"
+    },
+  {
+    "id": 3,
+    "title": "Women's Summer Dress",
+    "description": "A stylish and lightweight dress for summer days.",
+    "price": 39.99,
+    "discountPercentage": 15.0,
+    "rating": 4.7,
+    "stock": 100,
+    "brand": "ChicStyle",
+    "category": "apparel"
+  }
+]
