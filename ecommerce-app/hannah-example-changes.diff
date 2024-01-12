@@ -1,0 +1,97 @@
+diff --git a/.gitignore b/.gitignore
+new file mode 100644
+index 0000000..40b878d
+--- /dev/null
++++ b/.gitignore
+@@ -0,0 +1 @@
++node_modules/
+\ No newline at end of file
+diff --git a/README.md b/README.md
+index a7becc4..86f5926 100644
+--- a/README.md
++++ b/README.md
+@@ -2,14 +2,20 @@
+ Uniqlo clone 
+ 
+ ## Instructions:
+-To run,
++To run frontend,
+ 
+ Type in the terminal:
+ 1. `cd ecommerce-app`
+ 2. `npm install` (if npm command not found)
+ 3. `npm start`
+ 
+-Runs on local host 
++Runs on local host.
++
++To run backend in another terminal:
++1. `cd ecommerce-app/backend`
++2. `npm install` (if npm command not found)
++3. `npm start`
++
+ 
+ ## Workflow:
+ ### Frontend 
+diff --git a/ecommerce-app/backend/node_modules/.package-lock.json b/ecommerce-app/backend/node_modules/.package-lock.json
+index abcbd6a..b176fbd 100644
+--- a/ecommerce-app/backend/node_modules/.package-lock.json
++++ b/ecommerce-app/backend/node_modules/.package-lock.json
+@@ -508,6 +508,20 @@
+       "resolved": "https://registry.npmjs.org/fs/-/fs-0.0.1-security.tgz",
+       "integrity": "sha512-3XY9e1pP0CVEUCdj5BmfIZxRBTSDycnbqhIOGec9QYtmVH2fbLpj86CFWkrNOkt/Fvty4KZG5lTglL9j/gJ87w=="
+     },
++    "node_modules/fsevents": {
++      "version": "2.3.3",
++      "resolved": "https://registry.npmjs.org/fsevents/-/fsevents-2.3.3.tgz",
++      "integrity": "sha512-5xoDfX+fL7faATnagmWPpbFtwh/R77WmMMqqHGS65C3vvB0YHrgF+B1YmZ3441tMj5n63k0212XNoJwzlhffQw==",
++      "dev": true,
++      "hasInstallScript": true,
++      "optional": true,
++      "os": [
++        "darwin"
++      ],
++      "engines": {
++        "node": "^8.16.0 || ^10.6.0 || >=11.0.0"
++      }
++    },
+     "node_modules/function-bind": {
+       "version": "1.1.2",
+       "resolved": "https://registry.npmjs.org/function-bind/-/function-bind-1.1.2.tgz",
+diff --git a/ecommerce-app/backend/server.js b/ecommerce-app/backend/server.js
+index 78460e7..ad89688 100644
+--- a/ecommerce-app/backend/server.js
++++ b/ecommerce-app/backend/server.js
+@@ -1,8 +1,11 @@
+ // Import required modules
+ const fs = require('fs/promises');
+ const express = require('express');
++const cors = require('cors');
+ const app = express();
+ 
++app.use(cors());
++
+ app.get('/', (req, response) => {
+   response.send('This is where the server runs');
+ })
+diff --git a/ecommerce-app/src/App.frontend.js b/ecommerce-app/src/App.frontend.js
+index 53f7750..46a6c01 100644
+--- a/ecommerce-app/src/App.frontend.js
++++ b/ecommerce-app/src/App.frontend.js
+@@ -38,7 +38,15 @@ function App() {
+     <div className="App">
+       <h2> Welcome to </h2>
+       <MyApp />
+-      
++      <br/>
++      {/* suggest making a component here which takes in item as a prop
++      then in that component, you can do all the necessary formatting */}
++      {iniData.map((item) => (
++        <div key={item.id}> 
++          <h2>{item.title}</h2>
++          <p>{item.description}</p>
++        </div>
++      ))}
+     </div>
+   );
+ }
