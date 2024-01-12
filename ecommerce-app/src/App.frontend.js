@@ -1,23 +1,6 @@
 import './App.css';
 import ProductDetails from './ProductDetails';
 
-function MyButton() {
-  return (
-    <button>
-      Login
-    </button>
-  );
-}
-
-export function MyApp() {
-  return (
-    <div>
-      <h1>e-commerce</h1>
-      <MyButton />
-    </div>
-  );
-}
-
 function App() {
 
   return (
