@@ -8,8 +8,7 @@ To run frontend,
  1. `cd ecommerce-app`
  2. `npm install` (if npm command not found)
  3. `npm start`
- 
-+Runs on local host.
+ Runs on local host.
 
 
 To run backend in another terminal:
