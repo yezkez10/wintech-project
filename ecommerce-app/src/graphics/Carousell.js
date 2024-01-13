@@ -34,7 +34,7 @@ function Carousell() {
 
     const startAutoSlide = () => {
         // Start autoslide and remember the intervalId
-        intervalId = setInterval(autoSlide, 3000); // Slide every 3 seconds
+        intervalId = setInterval(autoSlide, 5000); // Slide every 3 seconds
     };
 
     const stopAutoSlide = () => {
