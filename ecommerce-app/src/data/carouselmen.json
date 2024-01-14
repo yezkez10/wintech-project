@@ -1,0 +1,16 @@
+{
+  "slidesmen": [
+    {
+      "src": "/men1.png",
+      "alt": "Image 1 for carousel"
+    },
+    {
+      "src": "/men2.png",
+      "alt": "Image 2 for carousel"
+    },
+    {
+      "src": "/men3.png",
+      "alt": "Image 3 for carousel"
+    }
+  ]
+}

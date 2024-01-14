@@ -27,7 +27,7 @@ const Carousel = ({ data }) => {
         disableOnInteraction: false,
       }}
     >
-      {data.slides.map((item, index) => (
+      {data.map((item, index) => (
         <SwiperSlide className="swiper" key={index}>
           <img className="image" src={item.src} alt={item.alt} />
         </SwiperSlide>
