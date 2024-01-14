@@ -1,0 +1,53 @@
+.product-card {
+  position: relative;
+  display: block;
+  width: 30%;
+  margin-left: 30px;
+  margin-top: 30px;
+}
+
+.colors {
+  margin-bottom: 0px;
+  display: flex;
+}
+.colorColumn {
+  display: flex;
+  gap: 10px;
+}
+.box-color {
+  height: 20px;
+  width: 20px;
+  margin-top: 10px;
+  display: flex;
+}
+.gender {
+  color: #868585;
+  font-size: 14px;
+  line-height: 1;
+  font-weight: 900;
+  text-align: left;
+  margin-top: 20px;
+}
+.size {
+  color: #868585;
+  font-size: 14px;
+  line-height: 1;
+  font-weight: 900;
+  text-align: right;
+  margin-top: 20px;
+}
+.gendersize {
+  display: flex;
+  gap: 173px;
+}
+
+.product-title {
+  font-family: "UniqloPro Bold", "Helvetica Neue", HelveticaNeue, Helvetica,
+    "Noto Sans", Roboto, Arial, "Hiragino Sans", "Hiragino Kaku Gothic Pro",
+    "\30D2\30E9\30AE\30CE\89D2\30B4 Pro W3", "Noto Sans CJK JP", Osaka, Meiryo,
+    "\30E1\30A4\30EA\30AA", "MS PGothic", "MS P\30B4\30B7\30C3\30AF",
+    "Hiragino Sans GB", "Arial Unicode MS", sans-serif;
+  font-weight: 700;
+  text-align: left;
+  margin-top: 20px;
+}
