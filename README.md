@@ -20,6 +20,7 @@ To run backend in another terminal:
 ### Frontend 
 - routing + pages 
 - integrate tailwind CSS styles into pages
+- product card 
 
 ### Backend 
 - tech stack (database)
