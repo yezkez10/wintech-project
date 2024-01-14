@@ -1,15 +1,15 @@
 {
-  "slidesmen": [
+  "slideswomen": [
     {
-      "src": "/men1.png",
+      "src": "/women1.jpg",
       "alt": "Image 1 for carousel"
     },
     {
-      "src": "/men2.png",
+      "src": "/women2.jpg",
       "alt": "Image 2 for carousel"
     },
     {
-      "src": "/men3.png",
+      "src": "/women3.jpg",
       "alt": "Image 3 for carousel"
     }
   ]
