@@ -1,0 +1,16 @@
+{
+  "slidesbaby": [
+    {
+      "src": "/baby1.png",
+      "alt": "Image 1 for carousel"
+    },
+    {
+      "src": "/baby2.png",
+      "alt": "Image 2 for carousel"
+    },
+    {
+      "src": "/baby3.png",
+      "alt": "Image 3 for carousel"
+    }
+  ]
+}
