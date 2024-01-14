@@ -10,7 +10,6 @@ import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 
 const Carousel = ({ data }) => {
-  console.log("this is data" + data[0]);
   return (
     // <div className="swiper">
     <Swiper
