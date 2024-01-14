@@ -10,17 +10,17 @@ function Home() {
         <nav class="bg-gray-200 p-2">
           <ul class="flex  justify-end text-sm">
             <li class="mr-6">
-              <a class="text-500" href="#">
+              <a class="text-500" href="/Help">
                 Help
               </a>
             </li>
             <li class="mr-6">
-              <a class="text-500" href="#">
+              <a class="text-500" href="/StoreLocator">
                 Store Locator
               </a>
             </li>
             <li class="mr-6">
-              <a class="text-500 font-bold" href="#">
+              <a class="text-500 font-bold" href="/Language">
                 English
               </a>
             </li>
@@ -29,7 +29,7 @@ function Home() {
       </div>
 
       <NavBar />
-      <Carousel data={slides} />
+      <Carousel data={slides.slides} />
 
       <noscript>You need to enable JavaScript to run this app.</noscript>
     </body>
